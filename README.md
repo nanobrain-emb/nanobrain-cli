@@ -8,7 +8,7 @@
 	<a  style="text-decoration: none"  href="#usage">Usage</a>
 </h3>
 
-Create your professional-looking embedded system in a practical and fast way. ** NanoBrain ** compiles a small, fully customizable linux image. For python applications pygame is the basis for your system's graphical interface, but nothing prevents you from creating it your way.
+Create your professional-looking embedded system in a practical and fast way. **NanoBrain** compiles a small, fully customizable linux image. For python applications pygame is the basis for your system's graphical interface, but nothing prevents you from creating it your way.
 
 ## Requirements
 ### Host systems
