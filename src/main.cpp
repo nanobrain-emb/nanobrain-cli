@@ -295,18 +295,18 @@ int main(int argc, char ** argv){
   if (get_env() != 1) {
     std::cout << std::endl << "Set the environment variables." << std::endl << std::endl;
     std::cout << std::endl << "\tNANOBRAIN_BOARD\t[rpi3]" << std::endl;
-    std::cout << "\tNANOBRAIN_LANG\t[python | elixir]" << std::endl << std::endl;
+    std::cout << "\tNANOBRAIN_LANG\t[python]" << std::endl << std::endl;
     return -1;
   }
   for (int i = 1; i < argc; i++) {
     value = argv[i];
 
     if(value=="commit") return (commit(argc, argv));
-    if(value=="py") return (python_lib(argc, argv));
+    if(value=="deps") return (python_lib(argc, argv));
     
-    if(value == "-npy") {
+    if(value == "new") {
       i++;
-      new_proj_python(argv[i]);
+      if(env_lang == "python" ) new_proj_python(argv[i]);
       return(1);
     }
     if (verify_nanobrain()) {

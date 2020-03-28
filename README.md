@@ -10,8 +10,15 @@
 	<a  style="text-decoration: none"  href="#usage">Usage</a>
 </h3>
 
+Crie seu sistema embarcado com aparência profissional, de maneira prática e rápida. **NanoBrain** compila uma imagem linux pequena e totalmente customizável. Para aplicações em python o pygame é a base para a interface gráfica do seu sistema, mas nada impede de você criar da sua maneira.
 
 ## Requirements
+### Host systems
+* Mac OS 10+
+* Linux
+
+### Prerequisities
+
 * git
 * Docker
 * Python2
@@ -40,9 +47,7 @@ Prerequsities:
 
 ```
 $ sudo apt-get update
-```
-```
-$ sudo apt-get -y install python python2 git netbpm build-essential
+$ sudo apt-get -y install python python2 git netpbm curl build-essential
 ```
 ### All systems
 Install python dependencies:
