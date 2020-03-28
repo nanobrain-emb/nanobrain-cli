@@ -9,7 +9,7 @@
 	<span> · </span>
 	<a href="#usage">Usage</a>
 </h3>
---
+---
 
 ## Requirements
 
