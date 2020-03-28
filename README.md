@@ -12,6 +12,7 @@
 
 
 ## Requirements
+* git
 * Docker
 * Python2
 	* pip
@@ -20,11 +21,12 @@
 
 ## Install
 
-Ao começar devemos preparar o ambiente de desenvolvimento.
+When starting we must prepare the development environment.
 
-Antes de tudo **NanoBrain** funciona usando containers por isso é necessário sua instalação, você pode instala-lo clicando [here!](https://www.docker.com/get-started)
+First of all NanoBrain works using containers so its installation of docker is necessary, you can install it by clicking [here!](https://www.docker.com/get-started)
 
-As outras dependências você pode instalar usando o terminal, assim:
+The other dependencies you can install using the terminal, like this:
+
 ### Mac-os X:
 Install Python2:
 
