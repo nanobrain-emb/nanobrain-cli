@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include <unistd.h>
+#include <algorithm>
 
 // Global Variables
 
