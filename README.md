@@ -5,19 +5,17 @@
 	<span> · </span>
 	<a  style="text-decoration: none"  href="#install">Install</a>
 	<span> · </span>
-	<a  style="text-decoration: none"  href="#resources">Resources</a>
-	<span> · </span>
 	<a  style="text-decoration: none"  href="#usage">Usage</a>
 </h3>
 
-Crie seu sistema embarcado com aparência profissional, de maneira prática e rápida. **NanoBrain** compila uma imagem linux pequena e totalmente customizável. Para aplicações em python o pygame é a base para a interface gráfica do seu sistema, mas nada impede de você criar da sua maneira.
+Create your professional-looking embedded system in a practical and fast way. ** NanoBrain ** compiles a small, fully customizable linux image. For python applications pygame is the basis for your system's graphical interface, but nothing prevents you from creating it your way.
 
 ## Requirements
 ### Host systems
 * Mac OS 10+
 * Linux
 
-### Prerequisities
+#### Prerequisities
 
 * git
 * Docker
@@ -27,7 +25,7 @@ Crie seu sistema embarcado com aparência profissional, de maneira prática e r�
 	* wget
 * Netpbm
 
-## Install
+#### Install
 
 When starting we must prepare the development environment.
 
@@ -35,13 +33,13 @@ First of all NanoBrain works using containers so its installation of docker is n
 
 The other dependencies you can install using the terminal, like this:
 
-### Mac-os X:
+##### Mac-os X:
 Install Python2:
 
 ``` 
 $ brew install python@2 git
 ```
-### Linux (Debian)
+##### Linux (Debian)
 
 Prerequsities:
 
@@ -49,7 +47,7 @@ Prerequsities:
 $ sudo apt-get update
 $ sudo apt-get -y install python python2 git netpbm curl build-essential
 ```
-### All systems
+##### All systems
 Install python dependencies:
 
 ```
@@ -68,7 +66,9 @@ $ git clone https://github.com/nanobrain-emb/nanobrain-cli.git
 ```
 $ cd nanobrain-cli && make
 ```
-## Resources
+### Target
+Raspberry pi 3.
+![](https://miro.medium.com/max/1400/1*A2gpUDLyOx903dVUStHFTA.jpeg)
 
 ## Usage
 
