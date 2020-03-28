@@ -72,15 +72,37 @@ Raspberry pi 3.
 
 ## Usage
 
-### New Project
+### Create Project
+
+Define the enviroment variable
+
+```
+~$ export NANOBRAIN_BOARD=rpi3
+~$ export NANOBRAIN_LANG=python
+```
+
+Create a new python-embedded projet: `nanobrain-cli new [name]`
+
+```
+~$ nanobrain-cli new HelloWorld
+~$ cd HelloWorld
+```
 
 ### Install Packages
 
-### Change bootup image
+You can include libraries in your embedded project `nanobrain-cli deps install [lib-name ...]`
 
-### Save my own container
+```
+~/HelloWorld $ nanobrain-cli deps install qrcode matplot
+```
 
 ### Burn image
+To generate an image and burn to the sdcard, simply execute: `nanobrain-cli -fb [driver]`
+
+Example:
+```
+~/HelloWorld $ nanobrain-cli -fb /dev/disk2
+```
 
 
 
