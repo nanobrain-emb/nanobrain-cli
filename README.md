@@ -1,6 +1,6 @@
 # <center>NanoBrain-CLI</center>
 --
-<center>[Requirements](#requirements) | [Install](#install) | [Resources](#resources) | [Usage](#usage)</center>
+[Requirements](#requirements) | [Install](#install) | [Resources](#resources) | [Usage](#usage)
 --
 
 ## Requirements
