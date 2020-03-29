@@ -9,15 +9,30 @@ Container_CTRL::Container_CTRL(Project pjt) : Project(pjt.get_board(), pjt.get_l
 Container_CTRL::Container_CTRL(std::string board, std::string lang): Project(board, lang){
   env_board = board;
   env_lang = lang;
-  docker_repo += env_board + "-" + env_lang;
+  docker_repo = DOCKER + env_board + "-" + env_lang;
   docker_id = "";
 }
 
-int Container_CTRL::start() {
-  if(exec_str(("docker ps --format '{{.ID}}' --filter id=" + this->docker_id).c_str()) == "") {
-    std::cout << "Start VM - " + this->docker_repo + this->env_board << std::endl;
-    this->docker_id = exec_str(("docker run -d -i " + this->docker_repo + this->env_board).c_str());
+int Container_CTRL::verify_img(){
+  std::string sha = "";
+  try {
+    sha = exec_str(("docker images -q " + this->docker_repo).c_str());
+    if (sha == "") {
+      exec_cmd("docker pull " + this->docker_repo);
+    }
     return 1;
+  }catch(...){
+    return -1;
+  }
+}
+
+int Container_CTRL::start() {
+  if(verify_img()){
+    if(exec_str(("docker ps --format '{{.ID}}' --filter id=" + this->docker_id).c_str()) == "") {
+      std::cout << "Start VM - " + this->docker_repo << std::endl;
+      this->docker_id = exec_str(("docker run -d -i " + this->docker_repo).c_str());
+      return 1;
+    }
   }
   return 0;
 }
@@ -35,13 +50,6 @@ int Container_CTRL::stop(){
       exec_cmd("docker rm " + this->docker_id, "Finishing ...");
       return 1;
     }
-  return 0;
-}
-
-int Container_CTRL::verify_img(){
-  std::string sha = "";
-  sha = exec_str(("docker images -q " + this->docker_repo + this->env_board).c_str());
-  if (sha != "") return 1;
   return 0;
 }
 

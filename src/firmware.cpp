@@ -53,7 +53,7 @@ int Firmware::create(){
   std::cout <<  "Generating Firmware ..." <<  std::endl;
   
   overlay();
-  if(is_start()) start();
+  if(is_start() != 1) start();
     
   if(get_lang() == "py") folder = "my_app/";
   
