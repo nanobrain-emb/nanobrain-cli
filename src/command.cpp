@@ -1,7 +1,7 @@
 #include "command.hpp" 
 
-// Commands
-std::string Command::exec(const char* cmd) {
+Command::Command(){}
+std::string Command::exec_str(const char* cmd) {
     char buffer[128];
     std::string result = "";
     FILE* pipe = popen(cmd, "r");
@@ -20,13 +20,13 @@ std::string Command::exec(const char* cmd) {
 }
 
 int Command::exec_cmd(std::string cmd, std::string msg) {
-  std::cout << this->color << msg << this->e_color << std::endl;
+  std::cout << COLOR << msg << E_COLOR << std::endl;
   system(cmd.c_str());
   return 1;
 }
 
 int Command::exec_cmd(std::string cmd) {
-  std::cout << this->color << cmd << this->e_color << std::endl;
+  std::cout << COLOR << cmd << E_COLOR << std::endl;
   exec_cmd(cmd, "");
   return 1;
 }

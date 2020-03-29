@@ -2,15 +2,18 @@
 #define CONTAINER_CTRL_HPP
 
 #include "command.hpp"
+#include "project.hpp"
 
-class Container_CTRL {
+#define DOCKER    "nanobrain/"
+
+class Container_CTRL : public Project{
   private:
-    Command cmd;
     std::string env_board;
     std::string env_lang;
-    std::string docker_repo   = "nanobrain/";
+    std::string docker_repo;
     std::string docker_id;
   public:
+    Container_CTRL(Project);
     Container_CTRL(std::string, std::string);
     int verify_img();
     int start();
@@ -19,6 +22,7 @@ class Container_CTRL {
     void exec(std::string);
     int cp(std::string, std::string);
     int cp(std::string, std::string, std::string);
+    int is_start();
 };
 
 #endif // CONTAINER_CTRL_HPP

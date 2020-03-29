@@ -1,57 +1,79 @@
-# NanoBrain - CLI
+CXX ?= g++
 
+# path #
+SRC_PATH = $(shell pwd)/src
+BUILD_PATH = $(shell pwd)/build
+BIN_PATH = $(BUILD_PATH)/bin
 
-# nome do projeto
-PROJ_NAME=nanobrain-cli
+SYM_LINK=/usr/local/bin
 
-# .c files
-C_SRC=$(wildcard ./src/*.cpp)
+# executable # 
+BIN_NAME = nanobrain-cli
 
-# .h files
-H_SRC=$(wildcard ./src/*.h)
+# extensions #
+SRC_EXT = cpp
 
-#Obj files
-OBJ=$(subst .cpp,.o,$(subst src,obj,$(C_SRC)))
+# code lists #
+# Find all source files in the source directory, sorted by
+# most recently modified
+SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
+# Set the object file names, with the source directory stripped
+# from the path, and the build path prepended in its place
+OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
+# Set the dependency files that will be used to add header dependencies
+DEPS = $(OBJECTS:.o=.d)
 
-# Compilador 
-CC=g++
+# flags #
+COMPILE_FLAGS = -std=c++11 -Wall -Wextra -g
+INCLUDES = -I include/ -I /usr/local/include
+# Space-separated pkg-config libraries used by this project
+LIBS =
 
-# C Flags
-FLAGS=-c		\
-			-W		\
-			-Wall
-FOLDER=$(shell pwd)/
+.PHONY: default_target
+default_target: release
 
-# Comando remove files
-RM= rm -rf
+.PHONY: release
+release: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS)
+release: dirs
+	@$(MAKE) all
 
-# Compilação e Link
-all: objFolder $(PROJ_NAME)
+.PHONY: dirs
+dirs:
+	@echo "Creating directories"
+	@mkdir -p $(dir $(OBJECTS))
+	@mkdir -p $(BIN_PATH)
 
-$(PROJ_NAME): $(OBJ)
-		@ echo 'Building binary using G++ linker: $@'
-		$(CC) -o $@ $^
-		@ ln -s $(FOLDER)$(PROJ_NAME) /usr/local/bin/$(PROJ_NAME)
-		@ ln -s $(FOLDER)/src/get_pypi /usr/local/bin/$(PROJ_NAME)_py
-		@ echo 'Done!'
-		@ echo ' '
-
-./obj/%.o: ./src/%.c ./src/%.h
-		@ echo 'Building target using G++ compiler: $<'
-		$(CC) $< $(FLAGS) -o $@
-		@ echo ' '
-
-./obj/main.o: ./src/main.cpp $(H_SRC)
-		@ echo 'Building target using G++ compiler: $<'
-		$(CC) $< $(FLAGS) -o $@
-		@ echo ' '
-objFolder: 
-		@ mkdir -p obj
-
+.PHONY: clean
 clean:
-		@ $(RM) ./obj/*.o $(PROJ_NAME) *~
-		@ rm /usr/local/bin/$(PROJ_NAME)
-		@ rm /usr/local/bin/$(PROJ_NAME)_py
-		@ rmdir obj
-	
-.PHONY: all clean
+	@echo "Deleting $(BIN_NAME) symlink"
+	@$(RM) $(SYM_LINK)/$(BIN_NAME)
+	@$(RM) -rf $(SYM_LINK)/get_pypi
+	@echo "Deleting directories"
+	@$(RM) -r $(BUILD_PATH)
+	@$(RM) -r $(BIN_PATH)
+
+# checks the executable and symlinks to the output
+.PHONY: all
+all: $(BIN_PATH)/$(BIN_NAME)
+	@echo "Making symlink: $< -> $(SYM_LINK)/$(BIN_NAME)"
+	@ cp -r $(SRC_PATH)/get_pypi $(BIN_PATH)/get_pypi
+	@ python -m compileall $(BIN_PATH)/get_pypi/
+	@ rm -r $(BIN_PATH)/get_pypi/*.py
+
+	@ ln -s $(BIN_PATH)/get_pypi $(SYM_LINK)/get_pypi
+	@ ln -s $(BIN_PATH)/$(BIN_NAME) $(SYM_LINK)/$(PROJ_NAME)
+
+# Creation of the executable
+$(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
+	@echo "Linking: $@"
+	$(CXX) $(OBJECTS) -o $@
+
+# Add dependency files, if they exist
+-include $(DEPS)
+
+# Source file rules
+# After the first compilation they will be joined with the rules from the
+# dependency files to provide header dependencies
+$(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
+	@echo "Compiling: $< -> $@"
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
