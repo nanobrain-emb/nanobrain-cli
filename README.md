@@ -1,4 +1,4 @@
-<div align="center"><img src="https://avatars1.githubusercontent.com/u/62779874?v=4" style=" width: 100px;" /></div>
+<div align="center"><img src="https://avatars1.githubusercontent.com/u/62779874?v=4" width="100px" /></div>
 </p>
 <h3 align="center">
 	<a  style="text-decoration: none"  href="#requirements">Requirements</a>
