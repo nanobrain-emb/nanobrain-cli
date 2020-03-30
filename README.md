@@ -1,5 +1,8 @@
-<h1 align="center">NanoBrain - CLI</h1>
+<div style="position: relative; width: 200px; left: 50%; margin-left: -100px; margin-bottom: -30px;">
+<img style="width: 200px;" src="https://avatars1.githubusercontent.com/u/62779874?v=4" />
+</div>
 
+</p>
 <h3 align="center">
 	<a  style="text-decoration: none"  href="#requirements">Requirements</a>
 	<span> · </span>
