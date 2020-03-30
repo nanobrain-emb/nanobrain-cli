@@ -122,7 +122,7 @@ int Container_CTRL::commit(int argc, char ** argv){
       std::cout << "\t-m, --message string\t Commit message" << std::endl;
     }
   }
-  std::cout << (commit + this->docker_id + this->docker_repo + this->env_lang + this->env_lang + docker_suf).c_str() << std::endl;
+  exec_str((commit + this->docker_id + " " + this->docker_repo + docker_suf).c_str());
 
   return 0;
 }
