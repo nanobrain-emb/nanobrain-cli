@@ -70,7 +70,7 @@ int Project::py_deps(int argc, char ** argv){
       i++;
       for (int j=i; j< argc; j++) {
         value = argv[j];
-        folder = exec_str(("python /usr/local/bin/nanobrain-cli_py --package " + value + " --folder " + pwd + "/lib/").c_str());
+        folder = exec_str(("python /usr/local/bin/get_pypi --package " + value + " --folder " + pwd + "/lib/").c_str());
         std::cout << folder.c_str() <<std::endl ;
       }
     }
