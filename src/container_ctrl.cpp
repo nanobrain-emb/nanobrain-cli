@@ -19,6 +19,10 @@ int Container_CTRL::verify_img(){
     sha = exec_str(("docker images -q " + this->docker_repo).c_str());
     if (sha == "") {
       exec_cmd("docker pull " + this->docker_repo);
+      this->docker_id = exec_str(("docker run -d -i " + this->docker_repo).c_str());
+      exec("make -C /root/nanobrain-br");
+
+      exec_cmd("docker commit " + this->docker_id + " " + this->docker_repo + ":latest");
     }
     return 1;
   }catch(...){

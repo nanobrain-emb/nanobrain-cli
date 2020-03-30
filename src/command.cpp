@@ -26,7 +26,6 @@ int Command::exec_cmd(std::string cmd, std::string msg) {
 }
 
 int Command::exec_cmd(std::string cmd) {
-  std::cout << COLOR << cmd << E_COLOR << std::endl;
-  exec_cmd(cmd, "");
+  exec_cmd(cmd, cmd);
   return 1;
 }
