@@ -100,6 +100,7 @@ You can include libraries in your embedded project `nanobrain-cli deps install [
 To generate an image and burn to the sdcard, simply execute: `nanobrain-cli -fb [driver]`
 
 Example:
+
 ```
 ~/HelloWorld $ nanobrain-cli -fb /dev/disk2
 ```
