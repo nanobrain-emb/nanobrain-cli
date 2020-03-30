@@ -18,7 +18,7 @@ std::string Project::get_lang(){
   return this->env_lang;
 }
 void Project::_new(char * name) {
-  if (this->env_lang == "py") new_py(name);
+  if (this->env_lang == "python") new_py(name);
 }
 // Check codes
 int Project::verify_nanobrain() {
