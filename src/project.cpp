@@ -45,7 +45,7 @@ int Project::new_py(char * name){
   std::cout << "\e[38;5;46m****************************************************************";
   std::cout << std::endl << std::endl << std::endl <<  "\e[38;5;93m\tTo Start:\e[0m\e[38;5;46m" << std::endl;
   std::cout << std::endl <<  "\t\t cd " << str_proj << std::endl << std::endl << std::endl;
-  std::cout << "****************************************************************\e[0m";
+  std::cout << "****************************************************************\e[0m"<<std::endl;
   return 1;
 }
 
