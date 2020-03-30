@@ -1,4 +1,4 @@
-![](https://avatars1.githubusercontent.com/u/62779874?v=4 | width=100)
+<img src="https://avatars1.githubusercontent.com/u/62779874?v=4" style=" width: 100px;" />
 
 </p>
 <h3 align="center">
