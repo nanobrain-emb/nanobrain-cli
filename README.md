@@ -1,6 +1,4 @@
-<div style="position: relative; width: 200px; left: 50%; margin-left: -100px; margin-bottom: -30px;">
-<img style="width: 200px;" src="https://avatars1.githubusercontent.com/u/62779874?v=4" />
-</div>
+![](https://avatars1.githubusercontent.com/u/62779874?v=4 =100x100)
 
 </p>
 <h3 align="center">
