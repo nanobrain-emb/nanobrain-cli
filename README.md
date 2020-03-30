@@ -1,4 +1,4 @@
-![](https://avatars1.githubusercontent.com/u/62779874?v=4 =100x100)
+![](https://avatars1.githubusercontent.com/u/62779874?v=4 | width=100)
 
 </p>
 <h3 align="center">
