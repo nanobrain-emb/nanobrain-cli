@@ -6,8 +6,9 @@
 #include <stdio.h>
 #include <string>
 
-#define COLOR     "\e[48;5;177m"
+#define COLOR     "\e[38;5;45m"
 #define E_COLOR   "\e[0m"
+#define COLOR_MSG "\e[1m\e[38;5;165m"
 
 class Command {
   public:

@@ -20,12 +20,13 @@ std::string Command::exec_str(const char* cmd) {
 }
 
 int Command::exec_cmd(std::string cmd, std::string msg) {
-  std::cout << COLOR << msg << E_COLOR << std::endl;
+  std::cout << COLOR_MSG << msg << E_COLOR << std::endl;
   system(cmd.c_str());
   return 1;
 }
 
 int Command::exec_cmd(std::string cmd) {
-  exec_cmd(cmd, cmd);
+  std::cout << COLOR << cmd << E_COLOR << std::endl;
+  exec_cmd(cmd, "");
   return 1;
 }
