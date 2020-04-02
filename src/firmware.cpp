@@ -30,19 +30,21 @@ int Firmware::del() {
 
 int Firmware::logo_bootup(char * logo) {
   std::string str_logo = logo;
+  if(verify_img()){
+    exec_cmd("pngtopnm "+ str_logo +" | ppmquant -fs 223 | pnmtoplainpnm > logo_linux_custom_224.ppm", "Convert image to ascii");
+    
+    if(is_start()) start();
 
-  exec_cmd("pngtopnm "+ str_logo +" | ppmquant -fs 223 | pnmtoplainpnm > logo_linux_custom_224.ppm", "Convert image to ascii");
-  
-  if(is_start()) start();
+    exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.c");
+    exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.o");
 
-  exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.c");
-  exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.o");
+    cp("logo_linux_custom_224.ppm", ":/root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.ppm");
 
-  cp("logo_linux_custom_224.ppm", ":/root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.ppm");
+    this->linux_cmd +="linux-rebuild ";
 
-  this->linux_cmd +="linux-rebuild ";
-
-  return 1;
+    return 1;
+  }
+  return 0;
 }
 
 int Firmware::create(){
