@@ -30,3 +30,6 @@ int Command::exec_cmd(std::string cmd) {
   exec_cmd(cmd, "");
   return 1;
 }
+void Command::msg(std::string msg) {
+  std::cout << COLOR_MSG << msg << E_COLOR << std::endl;
+}

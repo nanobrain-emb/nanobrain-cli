@@ -16,6 +16,7 @@ class Command {
     std::string exec_str(const char* );
     int exec_cmd(std::string, std::string);
     int exec_cmd(std::string);
+    void msg(std::string);
 };
 
 #endif // COMMAND_HPP
