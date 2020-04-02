@@ -20,6 +20,7 @@ class Project: public Command{
     void _new(char *);
     int verify_nanobrain();
     int new_py(char *);
+    void env();
 };
 
 #endif //PROJECT_HPP

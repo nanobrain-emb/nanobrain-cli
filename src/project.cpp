@@ -17,6 +17,10 @@ std::string Project::get_board(){
 std::string Project::get_lang(){
   return this->env_lang;
 }
+void Project::env(){
+  msg("BOARD: " + this->env_board);
+  msg("LANG: " + this->env_lang);
+}
 void Project::_new(char * name) {
   if (this->env_lang == "python") new_py(name);
 }
