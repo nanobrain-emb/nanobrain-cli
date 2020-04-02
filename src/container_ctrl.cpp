@@ -40,7 +40,13 @@ int Container_CTRL::start() {
   }
   return 0;
 }
-
+int Container_CTRL::terminal() {
+  if(verify_img()) {
+    exec_cmd(("docker run -it " + this->docker_repo).c_str(), "Starting terminal ...");
+    return 1;
+  }
+  return 0;
+}
 int Container_CTRL::is_start(){
   if(exec_str(("docker ps --format '{{.ID}}' --filter id=" + this->docker_id).c_str()) != "") {
     return 1;

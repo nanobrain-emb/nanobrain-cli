@@ -92,6 +92,9 @@ int main(int argc, char ** argv){
         firmware.start();
       } else if(value == "stop") {
         firmware.stop();
+      } else if(value == "terminal") {
+        firmware.terminal();
+        return(1);
       } else if((value == "--help") || (value == "-h")){
 
         return (1);

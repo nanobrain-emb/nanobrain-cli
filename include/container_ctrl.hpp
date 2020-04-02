@@ -17,6 +17,7 @@ class Container_CTRL : public Project{
     Container_CTRL(std::string, std::string);
     int verify_img();
     int start();
+    int terminal();
     int stop();
     int commit(int, char **);
     void exec(std::string);
