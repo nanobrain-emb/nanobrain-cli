@@ -33,7 +33,7 @@ int Firmware::logo_bootup(char * logo) {
   if(verify_img()){
     exec_cmd("pngtopnm "+ str_logo +" | ppmquant -fs 223 | pnmtoplainpnm > logo_linux_custom_224.ppm", "Convert image to ascii");
     
-    if(is_start()) start();
+    if(is_start() != 1) start();
 
     exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.c");
     exec("rm /root/nanobrain-br/build/linux-custom/drivers/video/logo/logo_custom_clut224.o");
