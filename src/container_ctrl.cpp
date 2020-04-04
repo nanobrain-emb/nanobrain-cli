@@ -83,8 +83,8 @@ int Container_CTRL::cp(std::string host, std::string target) {
 }
 int Container_CTRL::cp(std::string host, std::string target, std::string msg) {
   std::string d_cp = "docker cp ";
-  if(host.find(":") != std::string::npos) {
-    if(target.find(":") != std::string::npos){
+  if(host.find(":") == std::string::npos) {
+    if(target.find(":") == std::string::npos){
       return -1;
     } else {
       d_cp += host + " " + this->docker_id + target;
@@ -92,6 +92,7 @@ int Container_CTRL::cp(std::string host, std::string target, std::string msg) {
   } else {
     d_cp += this->docker_id + host + " " + target;
   }
+  
   exec_cmd(d_cp, msg);
   return 1;
 }

@@ -57,7 +57,7 @@ int Firmware::create(){
   overlay();
   if(is_start() != 1) start();
     
-  if(get_lang() == "py") folder = "my_app/";
+  if(get_lang() == "python") folder = "my_app/";
   
   cp("overlay/" + folder, ":/root/nanobrain-br/overlay/usr/local/sbin/", "Overlay directory");
 
