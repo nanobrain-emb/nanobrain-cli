@@ -69,8 +69,8 @@ void Container_CTRL::exec(std::string command){
 
 int Container_CTRL::cp(std::string host, std::string target) {
   std::string d_cp = "docker cp ";
-  if(host.find(":") != std::string::npos) {
-    if(target.find(":") != std::string::npos){
+  if(host.find(":") == std::string::npos) {
+    if(target.find(":") == std::string::npos){
       return -1;
     } else {
       d_cp += host + " " + this->docker_id + target;

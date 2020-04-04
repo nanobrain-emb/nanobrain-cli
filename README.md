@@ -33,17 +33,13 @@ First of all NanoBrain works using containers so its installation of docker is n
 
 The other dependencies you can install using the terminal, like this:
 
-##### Mac-os X:
-Install Python2:
+```
+# Mac Os
 
-``` 
 $ brew install python@2 git
-```
-##### Linux (Debian)
 
-Prerequsities:
+# Linux (Debian)
 
-```
 $ sudo apt-get update
 $ sudo apt-get -y install python python2 git netpbm curl build-essential
 ```
@@ -53,8 +49,6 @@ Install python dependencies:
 ```
 $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 $ python get-pip.py
-```
-```
 $ pip install requests wget
 ```
 
@@ -62,8 +56,6 @@ $ pip install requests wget
 
 ```
 $ git clone https://github.com/nanobrain-emb/nanobrain-cli.git
-```
-```
 $ cd nanobrain-cli && make
 ```
 ### Target
