@@ -57,7 +57,7 @@ int Project::overlay(){
 
   std::string pwd = exec_str("pwd");
 
-  if(env_lang == "py") {
+  if(env_lang == "python") {
     exec_cmd("rm -rf overlay/my_app");
     exec_cmd("rsync -av --progress . overlay/my_app/ --exclude overlay/");
   }
