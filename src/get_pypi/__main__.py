@@ -21,9 +21,7 @@ def install(package_name, pwd):
   os.system("cd lib/ && tar -xvf " + pwd + arq)
   os.system("rm " + pwd + arq)
   os.system("cd lib/ && mv " + pwd + folder + "/"+ folder.split("-")[0] + " " + folder.split("-")[0])
-  os.system("cd lib/ && rm -rf " + pwd + folder)
-  
-  print(folder)
+  os.system("rm -rf " + pwd + folder)
 
 
 if __name__== "__main__":

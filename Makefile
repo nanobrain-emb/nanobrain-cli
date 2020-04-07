@@ -57,8 +57,6 @@ clean:
 all: $(BIN_PATH)/$(BIN_NAME)
 	@echo "Making symlink: $< -> $(SYM_LINK)/$(BIN_NAME)"
 	@ cp -r $(SRC_PATH)/get_pypi $(BIN_PATH)/get_pypi
-	@ python -m compileall $(BIN_PATH)/get_pypi/
-	@ rm -r $(BIN_PATH)/get_pypi/*.py
 	@ ln -s $(BIN_PATH)/get_pypi $(SYM_LINK)/get_pypi
 	@ ln -s $(BIN_PATH)/$(BIN_NAME) $(SYM_LINK)/$(PROJ_NAME)
 
